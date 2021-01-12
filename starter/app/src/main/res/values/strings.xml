@@ -12,4 +12,7 @@
     <string name="welcome_button_text">Let\'s go!</string>
     <string name="welcome_title_text">Welcome to ShoeFashion !</string>
     <string name="welcome_description_text">In our store you will find all shoes with an unique discount. If you become a member you\'ll also gain 10% extra of discount. Click in the button below to start your journey!</string>
+    <string name="instructions_title_text">How to use our app</string>
+    <string name="instructions_text">After your registration you\'ll be able to explore our app. When you click \"Next\" you\'ll be able to see the list of shoes available. To know more details you only need to click in one. If you would like to add a shoe, just press the plus button at the bottom of the app and you\'ll need to fill all its details. Please let us know if we can assist you. Have fun!</string>
+    <string name="button_instructions_text">Next</string>
 </resources>
