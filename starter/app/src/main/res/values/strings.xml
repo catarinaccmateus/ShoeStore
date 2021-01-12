@@ -9,4 +9,7 @@
     <string name="label_password">Password</string>
     <string name="label_password_hint">Insert Password</string>
     <string name="label_email_hint">Insert E-mail</string>
+    <string name="welcome_button_text">Let\'s go!</string>
+    <string name="welcome_title_text">Welcome to ShoeFashion !</string>
+    <string name="welcome_description_text">In our store you will find all shoes with an unique discount. If you become a member you\'ll also gain 10% extra of discount. Click in the button below to start your journey!</string>
 </resources>
