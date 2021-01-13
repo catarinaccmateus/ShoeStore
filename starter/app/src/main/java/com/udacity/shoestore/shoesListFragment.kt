@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.udacity.shoestore.databinding.FragmentShoesListBinding
 
 class shoesList : Fragment() {
 
@@ -13,7 +16,10 @@ class shoesList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoes_list, container, false)
+        var viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        val binding: FragmentShoesListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoes_list, container, false)
+        binding.shoeListTitle.text = viewModel.loggedin.value.toString()
+        return binding.root
     }
 
 }

@@ -1,5 +1,6 @@
 package com.udacity.shoestore
 
+import android.text.BoringLayout
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,11 +17,25 @@ class SharedViewModel: ViewModel() {
     val shoeList: LiveData<MutableList<Shoe>>
     get() = _shoeList
 
+    private var _loggedIn = MutableLiveData<Boolean>()
+    val loggedin: LiveData<Boolean>
+    get() = _loggedIn
+
+
     init {
         _shoeList.value = mutableListOf(SHOE_ONE, SHOE_TWO, SHOE_THREE, SHOE_FOUR)
+        _loggedIn.value = false
     }
 
     fun addShoe(shoe: Shoe) {
         _shoeList.value?.add(shoe)
+    }
+
+    fun logIn() {
+        _loggedIn.value = true
+    }
+
+    fun logOut() {
+        _loggedIn.value = false
     }
 }
