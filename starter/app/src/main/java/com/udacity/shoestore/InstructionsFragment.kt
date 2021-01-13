@@ -19,6 +19,8 @@ class InstructionsFragment: Fragment() {
     ): View? {
         binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
+        binding.buttonInstructionsNext.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_instructionsFragment_to_shoesList))
+
         return binding.root
     }
 
