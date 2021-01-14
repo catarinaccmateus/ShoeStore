@@ -45,10 +45,17 @@
             app:destination="@id/action_logout"
             app:popUpTo="@id/navigation"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_shoeListFragment_to_shoeDetail"
+            app:destination="@id/shoeDetail" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetail"
-        android:name="com.udacity.shoestore.shoeDetail"
-        android:label="fragment_shoe_detail"
-        tools:layout="@layout/fragment_shoe_detail" />
+        android:name="com.udacity.shoestore.ShoeDetailFragment"
+        android:label="Shoe Details"
+        tools:layout="@layout/fragment_shoe_detail">
+        <action
+            android:id="@+id/action_shoeDetail_to_shoeListFragment"
+            app:destination="@id/shoeListFragment" />
+    </fragment>
 </navigation>

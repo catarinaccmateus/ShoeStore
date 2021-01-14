@@ -6,9 +6,8 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoesListBinding
 
 class ShoeListFragment: Fragment() {
@@ -20,6 +19,7 @@ class ShoeListFragment: Fragment() {
         //viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         val binding: FragmentShoesListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoes_list, container, false)
         binding.shoeListTitle.text = viewModel.loggedin.value.toString()
+        binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetail))
         setHasOptionsMenu(true)
         return binding.root
     }
