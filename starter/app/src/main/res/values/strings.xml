@@ -17,4 +17,12 @@
     <string name="button_instructions_text">Next</string>
     <string name="shoe_list_title_text">Explore our store</string>
     <string name="logout_text">Logout</string>
+    <string name="shoe_name_text">Shoe Name</string>
+    <string name="shoe_company_text">Shoe Company</string>
+    <string name="shoe_size_text">Shoe Size</string>
+    <string name="shoe_description_text">Shoe Description</string>
+    <string name="shoe_details_text">Check Shoe details</string>
+    <string name="save_text">Save</string>
+    <string name="add_text">Add</string>
+    <string name="cancel_text">Cancel</string>
 </resources>
