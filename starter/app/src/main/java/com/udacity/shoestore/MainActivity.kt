@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.udacity.shoestore.databinding.ActivityMainBinding
 
 
@@ -16,11 +19,9 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
-        return navController.navigateUp()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
     }
+
 }
