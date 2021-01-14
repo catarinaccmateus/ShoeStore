@@ -16,4 +16,5 @@
     <string name="instructions_text">After your registration you\'ll be able to explore our app.\nWhen you click \"Next\" you\'ll be able to see the list of shoes available. To know more details you only need to click in one. If you would like to add a shoe, just press the plus button at the bottom of the app and you\'ll need to fill all its details.\nPlease let us know if we can assist you.\nHave fun!</string>
     <string name="button_instructions_text">Next</string>
     <string name="shoe_list_title_text">Explore our store</string>
+    <string name="logout_text">Logout</string>
 </resources>
