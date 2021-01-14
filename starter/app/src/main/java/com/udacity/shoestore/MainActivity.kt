@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.udacity.shoestore.databinding.ActivityMainBinding
 
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navController = this.findNavController(R.id.myNavHostFragment)
-        //val appBarConfiguration = AppBarConfiguration(navController.graph)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.action_logout, R.id.shoeListFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {
