@@ -75,9 +75,10 @@
         <Button
             android:id="@+id/detailsSaveButton"
             style="@style/AppButton"
+            android:enabled="@{viewModel.isSaveButtonEnabled}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.addShoe()}"
+            android:onClick="@{(view) -> viewModel.addShoe(view)}"
             android:text="@string/save_text" />
 
         <Button
