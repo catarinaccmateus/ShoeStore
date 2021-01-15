@@ -12,7 +12,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="AppButton">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@drawable/button_effect</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/button_text</item>
         <item name="android:textStyle">bold</item>

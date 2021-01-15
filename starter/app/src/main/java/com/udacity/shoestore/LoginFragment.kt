@@ -1,10 +1,12 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -14,14 +16,13 @@ import com.udacity.shoestore.databinding.FragmentLoginBinding
 class LoginFragment : Fragment() {
 
     private val viewModel: SharedViewModel by activityViewModels()
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val binding: FragmentLoginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-       // viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+    ): View {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         binding.signupButton.setOnClickListener {view: View? ->
             logIn()
@@ -29,7 +30,30 @@ class LoginFragment : Fragment() {
         binding.loginButton.setOnClickListener {view: View? ->
             logIn()
         }
+
+        binding.emailInput.addTextChangedListener {
+           shouldButtonsBeDisabled()
+        }
+
+        binding.passwordInput.addTextChangedListener{
+            shouldButtonsBeDisabled()
+        }
+
         return binding.root
+    }
+
+    private fun shouldButtonsBeDisabled() {
+        if (binding.emailInput.text.isNotEmpty() && binding.passwordInput.text.isNotEmpty()) {
+            binding.apply {
+                loginButton.isEnabled = true
+                signupButton.isEnabled = true
+            }
+        } else {
+            binding.apply {
+                loginButton.isEnabled = false
+                signupButton.isEnabled = false
+            }
+        }
     }
 
     private fun navigateToWelcomePage(view: View?) {

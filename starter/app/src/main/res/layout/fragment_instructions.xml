@@ -22,6 +22,7 @@
                 android:layout_margin="@dimen/margin"
                 android:text="@string/instructions_title_text"
                 android:textAlignment="center"
+                android:textColor="@color/colorTertiary"
                 android:textSize="@dimen/big_text" />
 
             <TextView
