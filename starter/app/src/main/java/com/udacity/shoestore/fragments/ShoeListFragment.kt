@@ -1,6 +1,5 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.fragments
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
@@ -9,8 +8,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoesListBinding
 import com.udacity.shoestore.databinding.ShoeItemLayoutBinding
+import com.udacity.shoestore.viewmodel.SharedViewModel
 
 
 class ShoeListFragment: Fragment() {
@@ -40,7 +41,7 @@ class ShoeListFragment: Fragment() {
 
                 val itemBinding: ShoeItemLayoutBinding = DataBindingUtil.inflate(
                     layoutInflater,
-                    com.udacity.shoestore.R.layout.shoe_item_layout,
+                    R.layout.shoe_item_layout,
                     binding.shoeListView,
                     false
                 )
