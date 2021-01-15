@@ -1,4 +1,4 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.viewmodel
 
 import android.text.BoringLayout
 import android.util.Log
@@ -14,13 +14,22 @@ val SHOE_FOUR = Shoe("Solar Boost 21", 45.00, "Adidas", "Synthetic outsole. Text
 
 class SharedViewModel: ViewModel() {
 
+    //Shoe list
     private var _shoeList = MutableLiveData<MutableList<Shoe>>()
     val shoeList: LiveData<MutableList<Shoe>>
-    get() = _shoeList
+        get() = _shoeList
 
+    //Authentication state
     private var _loggedIn = MutableLiveData<Boolean>()
     val loggedin: LiveData<Boolean>
-    get() = _loggedIn
+        get() = _loggedIn
+
+
+    //Details for the shoe to add
+    var name = MutableLiveData<String>("")
+    var description = MutableLiveData<String>("")
+    var company = MutableLiveData<String>("")
+    var size = MutableLiveData<String>("")
 
 
     init {
@@ -28,8 +37,14 @@ class SharedViewModel: ViewModel() {
         _loggedIn.value = false
     }
 
-    fun addShoe(shoe: Shoe) {
-        _shoeList.value?.add(shoe)
+
+    fun addShoe() {
+        val sizeTransform: Double = size.value.toString().toDoubleOrNull() ?: 0.0
+        _shoeList.value?.add(Shoe(name.value.toString(), sizeTransform, company.value.toString(), description.value.toString()))
+        name.value = ""
+        description.value = ""
+        company.value = ""
+        size.value = ""
     }
 
     fun logIn() {
@@ -40,3 +55,13 @@ class SharedViewModel: ViewModel() {
         _loggedIn.value = false
     }
 }
+
+/*
+
+    Previous implementation (before two way data binding)
+
+    fun addShoe(shoe: Shoe?) {
+        _shoeList.value?.add(shoe)
+}
+
+*/
