@@ -5,4 +5,5 @@
     <color name="colorLight">#E4DFDA</color>
     <color name="colorSecondary">#D4B483</color>
     <color name="colorTertiary">#c1666b</color>
+    <color name="colorPrimaryDarker">#19456b</color>
 </resources>
