@@ -2,9 +2,9 @@ package com.udacity.shoestore.viewmodel
 
 import android.text.BoringLayout
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.view.View
+import androidx.lifecycle.*
+import androidx.navigation.findNavController
 import com.udacity.shoestore.models.Shoe
 
 val SHOE_ONE = Shoe("Boot 6 INCH PREMIUM", 39.00, "Timberland", "When you think of Timberland boots, youre thinking of these classic waterproof boots.", listOf("ic_baseline_shoe_default_24"))
@@ -25,22 +25,36 @@ class SharedViewModel: ViewModel() {
         get() = _loggedIn
 
 
-    //Details for the shoe to add
+    //Details from the shoe that will be added
     var name = MutableLiveData<String>("")
     var description = MutableLiveData<String>("")
     var company = MutableLiveData<String>("")
     var size = MutableLiveData<String>("")
-
+    val isSaveButtonEnabled = MediatorLiveData<Boolean>()
 
     init {
         _shoeList.value = mutableListOf(SHOE_ONE, SHOE_TWO, SHOE_THREE, SHOE_FOUR)
         _loggedIn.value = false
+        isSaveButtonEnabled.addSource(name) {validateForm(name.value)}
+        isSaveButtonEnabled.addSource(size) {validateForm(size.value)}
+    }
+
+    //Shoe name and size are mandatory to save a new shoe to the list.
+    private fun validateForm(value: String?) {
+        isSaveButtonEnabled.value =
+            !(value.isNullOrEmpty() || size.value.isNullOrEmpty() || name.value.isNullOrEmpty())
     }
 
 
-    fun addShoe() {
+    fun addShoe(view: View) {
         val sizeTransform: Double = size.value.toString().toDoubleOrNull() ?: 0.0
         _shoeList.value?.add(Shoe(name.value.toString(), sizeTransform, company.value.toString(), description.value.toString()))
+        cleanShoeDetailInput()
+        view.findNavController().navigateUp()
+    }
+
+
+   private fun cleanShoeDetailInput() {
         name.value = ""
         description.value = ""
         company.value = ""
@@ -54,14 +68,5 @@ class SharedViewModel: ViewModel() {
     fun logOut() {
         _loggedIn.value = false
     }
+
 }
-
-/*
-
-    Previous implementation (before two way data binding)
-
-    fun addShoe(shoe: Shoe?) {
-        _shoeList.value?.add(shoe)
-}
-
-*/
