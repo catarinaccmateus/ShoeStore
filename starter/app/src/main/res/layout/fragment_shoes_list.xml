@@ -28,17 +28,7 @@
                 android:id="@+id/shoe_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/shoe_list_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/shoe_list_title_text"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/big_text" />
-
-            </LinearLayout>
+                android:orientation="vertical"/>
         </ScrollView>
 
     </FrameLayout>
