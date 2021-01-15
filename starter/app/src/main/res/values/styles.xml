@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDarker</item>
     </style>
     <style name="AppButton">
         <item name="android:background">@drawable/button_effect</item>
